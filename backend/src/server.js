@@ -1,7 +1,9 @@
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
+import path from "path";
 import { fileURLToPath } from "url";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -13,49 +15,32 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-// const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || "http://localhost:5173";
-// const __dirname = path.resolve();
 
-//middleware
-// if (process.env.NODE_ENV !== "production") {
-//   app.use(
-//     cors({
-//       origin: "http://localhost:5173",
-//       // origin: [ALLOWED_ORIGIN],
-//     })
-//   );
-// }
-
+// CORS setup
 app.use(
   cors({
-    origin: process.env.ALLOWED_ORIGIN || "*", // Replace * with frontend URL ideally
+    origin: process.env.ALLOWED_ORIGIN || "*",
   })
 );
 
+// Middleware
 app.use(express.json());
 app.use(rateLimiter);
 
-// app.use((req, res, next) => {
-//   console.log(`req method is ${req.method} & req url is ${req.url}`);
-//   next();
-// });
-
+// Routes
 app.use("/api/notes", notesRoutes);
 
+// Serve frontend in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
   });
 }
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("MongoDB connected");
-  } catch (err) {
-    console.error("MongoDB connection error:", err.message);
-    process.exit(1);
-  }
-};
+// Connect DB and Start Server
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+});
