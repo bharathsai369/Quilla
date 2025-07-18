@@ -44,9 +44,9 @@ Here’s a preview of the Quilla UI:
 
 <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
 
-  <img src="./assets/Quilla-1.png" alt="UI Demo 1" width="300" height="200"/>
-  <img src="./assets/Quilla-2.png" alt="UI Demo 2" width="300" height="200"/>
-  <img src="./assets/Quilla-3.png" alt="UI Demo 3" width="300" height="200"/>
+  <img src="./assets/Quilla-1.png" alt="UI Demo 1" width="600" height="200"/>
+  <img src="./assets/Quilla-2.png" alt="UI Demo 2" width="600" height="200"/>
+  <img src="./assets/Quilla-3.png" alt="UI Demo 3" width="600" height="200"/>
 
 </div>
 
