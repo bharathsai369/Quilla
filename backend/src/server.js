@@ -22,12 +22,12 @@ const allowedOrigins = [
   process.env.ALLOWED_ORIGIN, // deployed frontend
 ];
 
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: allowedOrigins,
+//     credentials: true,
+//   })
+// );
 
 // Middleware
 app.use(express.json());
