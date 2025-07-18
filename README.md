@@ -38,44 +38,60 @@
 
 ---
 
+## 🖼️ App Preview
+
+Here’s a preview of the Quilla UI:
+
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+
+  <img src="./assets/Quilla-1.png" alt="UI Demo 1" width="300" height="200"/>
+  <img src="./assets/Quilla-2.png" alt="UI Demo 2" width="300" height="200"/>
+  <img src="./assets/Quilla-3.png" alt="UI Demo 3" width="300" height="200"/>
+
+</div>
+
+```
+
 ## 📁 Project Structure
 
 ```
+
 Quilla/
 ├── .github/
-│   └── copilot-instructions.md
+│ └── copilot-instructions.md
 ├── assets/
 ├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   │   └── upstash.js
-│   │   ├── controllers/
-│   │   │   └── notesController.js
-│   │   ├── middleware/
-│   │   │   └── rateLimiter.js
-│   │   ├── models/
-│   │   │   └── note.js
-│   │   ├── routes/
-│   │   │   └── notesRoute.js
-│   │   └── server.js
-│   ├── .env.example
-│   └── package.json
+│ ├── src/
+│ │ ├── config/
+│ │ │ └── upstash.js
+│ │ ├── controllers/
+│ │ │ └── notesController.js
+│ │ ├── middleware/
+│ │ │ └── rateLimiter.js
+│ │ ├── models/
+│ │ │ └── note.js
+│ │ ├── routes/
+│ │ │ └── notesRoute.js
+│ │ └── server.js
+│ ├── .env.example
+│ └── package.json
 ├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── libs/
-│   │   ├── pages/
-│   │   ├── App.jsx
-│   │   ├── index.css
-│   │   └── main.jsx
-│   ├── index.html
-│   ├── tailwind.config.js
-│   └── package.json
+│ ├── public/
+│ ├── src/
+│ │ ├── assets/
+│ │ ├── components/
+│ │ ├── libs/
+│ │ ├── pages/
+│ │ ├── App.jsx
+│ │ ├── index.css
+│ │ └── main.jsx
+│ ├── index.html
+│ ├── tailwind.config.js
+│ └── package.json
 ├── package.json
 └── README.md
-```
+
+````
 
 ## 🚀 Getting Started
 
@@ -94,16 +110,16 @@ Get a local copy of the project up and running for development and testing.
 
 1. **Clone the repository:**
 
-    ```bash
-    git clone https://github.com/bharathsai369/Quilla.git
-    cd Quilla
-    ```
+   ```bash
+   git clone https://github.com/bharathsai369/Quilla.git
+   cd Quilla
+````
 
 2. **Install dependencies (both frontend and backend):**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 ---
 
@@ -153,17 +169,17 @@ Runs on `http://localhost:5173`
 
 1. **Build frontend:**
 
-    ```bash
-    npm run build
-    ```
+   ```bash
+   npm run build
+   ```
 
-    This will generate `frontend/dist`.
+   This will generate `frontend/dist`.
 
 2. **Serve full-stack app:**
 
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
 This command serves the static frontend via Express and starts the backend API.
 
