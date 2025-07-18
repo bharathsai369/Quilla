@@ -1,16 +1,19 @@
-# Quilla
 
-**Quilla** is a **full-stack note-taking application** designed for simplicity and efficiency. Built with a modern tech stack, it provides a seamless experience for managing your notes, complete with robust backend services and a sleek, responsive user interface.
+---
+
+# 📝 Quilla
+
+**Quilla** is a **full-stack note-taking application** designed for simplicity and efficiency. Built with a modern tech stack, it offers a seamless experience for managing your notes, complete with robust backend services and a sleek, responsive user interface.
 
 ---
 
 ## ✨ Features
 
-- ✅ **CRUD Operations:** Create, Read, Update, Delete notes effortlessly.
-- 🎨 **Intuitive UI:** Clean and responsive design using React, Tailwind CSS, and DaisyUI.
-- 🧠 **Robust Backend:** Express.js and MongoDB ensure reliable and scalable performance.
-- 🔐 **Rate Limiting:** Efficient API protection using Upstash Redis.
-- 📣 **Real-time Toasts:** Instant feedback on user actions and errors with `react-hot-toast`.
+* ✅ **CRUD Operations:** Create, Read, Update, and Delete notes effortlessly.
+* 🎨 **Intuitive UI:** Clean and responsive design using React, Tailwind CSS, and DaisyUI.
+* 🧠 **Robust Backend:** Express.js and MongoDB ensure reliable and scalable performance.
+* 🔐 **Rate Limiting:** Efficient API protection using Upstash Redis.
+* 📣 **Real-time Toasts:** Instant feedback on actions using `react-hot-toast`.
 
 ---
 
@@ -18,29 +21,27 @@
 
 ### 🔹 Frontend
 
-- **React**
-- **Vite**
-- **React Router v7**
-- **Tailwind CSS**
-- **DaisyUI**
-- **Axios**
-- **react-hot-toast**
+* React
+* Vite
+* React Router v7
+* Tailwind CSS
+* DaisyUI
+* Axios
+* react-hot-toast
 
 ### 🔸 Backend
 
-- **Node.js**
-- **Express.js**
-- **MongoDB + Mongoose**
-- **Upstash Redis**
-- **dotenv**
-- **Nodemon**
-- **CORS**
+* Node.js
+* Express.js
+* MongoDB + Mongoose
+* Upstash Redis
+* dotenv
+* Nodemon
+* CORS
 
 ---
 
 ## 🖼️ App Preview
-
-Here’s a preview of the Quilla UI:
 
 <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
 
@@ -50,48 +51,48 @@ Here’s a preview of the Quilla UI:
 
 </div>
 
-```
+---
 
 ## 📁 Project Structure
 
 ```
-
 Quilla/
 ├── .github/
-│ └── copilot-instructions.md
+│   └── copilot-instructions.md
 ├── assets/
 ├── backend/
-│ ├── src/
-│ │ ├── config/
-│ │ │ └── upstash.js
-│ │ ├── controllers/
-│ │ │ └── notesController.js
-│ │ ├── middleware/
-│ │ │ └── rateLimiter.js
-│ │ ├── models/
-│ │ │ └── note.js
-│ │ ├── routes/
-│ │ │ └── notesRoute.js
-│ │ └── server.js
-│ ├── .env.example
-│ └── package.json
+│   ├── src/
+│   │   ├── config/
+│   │   │   └── upstash.js
+│   │   ├── controllers/
+│   │   │   └── notesController.js
+│   │   ├── middleware/
+│   │   │   └── rateLimiter.js
+│   │   ├── models/
+│   │   │   └── note.js
+│   │   ├── routes/
+│   │   │   └── notesRoute.js
+│   │   └── server.js
+│   ├── .env.example
+│   └── package.json
 ├── frontend/
-│ ├── public/
-│ ├── src/
-│ │ ├── assets/
-│ │ ├── components/
-│ │ ├── libs/
-│ │ ├── pages/
-│ │ ├── App.jsx
-│ │ ├── index.css
-│ │ └── main.jsx
-│ ├── index.html
-│ ├── tailwind.config.js
-│ └── package.json
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── libs/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── tailwind.config.js
+│   └── package.json
 ├── package.json
 └── README.md
+```
 
-````
+---
 
 ## 🚀 Getting Started
 
@@ -99,10 +100,10 @@ Get a local copy of the project up and running for development and testing.
 
 ### 📋 Prerequisites
 
-- [Node.js](https://nodejs.org/) (LTS recommended)
-- npm (comes with Node.js)
-- [MongoDB Atlas](https://www.mongodb.com/atlas/database) account (or a local MongoDB instance)
-- [Upstash](https://upstash.com/) account (for Redis)
+* [Node.js](https://nodejs.org/) (LTS recommended)
+* npm (comes with Node.js)
+* [MongoDB Atlas](https://www.mongodb.com/atlas/database) account (or local MongoDB)
+* [Upstash](https://upstash.com/) account (for Redis)
 
 ---
 
@@ -113,9 +114,9 @@ Get a local copy of the project up and running for development and testing.
    ```bash
    git clone https://github.com/bharathsai369/Quilla.git
    cd Quilla
-````
+   ```
 
-2. **Install dependencies (both frontend and backend):**
+2. **Install dependencies (frontend and backend):**
 
    ```bash
    npm install
@@ -145,23 +146,23 @@ NODE_ENV=development
 
 ## 🏃 Running the App Locally
 
-### Backend (dev mode)
+### Start Backend (dev mode):
 
 ```bash
 cd backend
 npm run dev
 ```
 
-Runs on `http://localhost:5001`
+➡️ Runs on: `http://localhost:5001`
 
-### Frontend (dev mode)
+### Start Frontend (dev mode):
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-Runs on `http://localhost:5173`
+➡️ Runs on: `http://localhost:5173`
 
 ---
 
@@ -173,7 +174,7 @@ Runs on `http://localhost:5173`
    npm run build
    ```
 
-   This will generate `frontend/dist`.
+   Generates static files in `frontend/dist`.
 
 2. **Serve full-stack app:**
 
@@ -181,6 +182,6 @@ Runs on `http://localhost:5173`
    npm start
    ```
 
-This command serves the static frontend via Express and starts the backend API.
+➡️ This will serve the static frontend via Express and start the backend API.
 
 ---

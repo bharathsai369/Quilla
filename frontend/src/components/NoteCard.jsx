@@ -9,9 +9,9 @@ export default function NoteCard({ note, onDeleteClick }) {
         <h3 className="card-title text-base-content text-xl font-semibold">
           {note.title}
         </h3>
-        <p className="text-base-content/70 line-clamp-3 text-sm">
+        <pre className="text-base-content/70 line-clamp-3 text-sm">
           {note.content}
-        </p>
+        </pre>
         <div className="card-actions justify-between items-center mt-4">
           <span className="text-xs text-base-content/60">
             {formatDate(new Date(note.createdAt))}
