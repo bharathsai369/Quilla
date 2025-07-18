@@ -1,4 +1,5 @@
 import express from "express";
+import { body } from "express-validator";
 import {
   createNote,
   deleteNote,
@@ -13,7 +14,16 @@ router.get("/", getAllNotes);
 
 router.get("/:id", getNoteById);
 
-router.post("/", createNote);
+// router.post("/", createNote);
+
+router.post(
+  "/",
+  [
+    body("title").isLength({ min: 1 }).trim().escape(),
+    body("content").optional().trim().escape(),
+  ],
+  createNote
+);
 
 router.put("/:id", updateNote);
 

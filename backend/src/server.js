@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+import mongoSanitize from "express-mongo-sanitize";
+import helmet from "helmet";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,6 +32,8 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.use(express.json()); // this middleware will parse JSON bodies: req.body
+app.use(mongoSanitize());
+app.use(helmet());
 
 app.use("/api/notes", rateLimiter, notesRoutes);
 
@@ -44,8 +48,23 @@ if (
   });
 }
 
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log("Server started on PORT:", PORT);
-  });
+// 404 fallback for unknown API routes
+app.use("/api", (req, res) => {
+  res.status(404).json({ message: "API route not found" });
 });
+
+// Global error handler (basic example)
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err);
+  res.status(500).json({ message: "Something went wrong!" });
+});
+
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log("Server started on PORT:", PORT);
+    });
+  })
+  .catch((err) => {
+    console.error("DB Connection Error:", err);
+  });
