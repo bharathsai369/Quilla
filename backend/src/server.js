@@ -1,11 +1,8 @@
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
-// import path from "path";
-// import { fileURLToPath } from "url";
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+import path from "path";
+import { fileURLToPath } from "url";
 
 import notesRoutes from "./routes/notesRoute.js";
 import { connectDB } from "./config/db.js";
@@ -16,39 +13,43 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// CORS setup
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// CORS Setup
+const allowedOrigins = [
+  "http://localhost:5173", // local dev
+  process.env.ALLOWED_ORIGIN, // deployed frontend
+];
+
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
-    // origin: process.env.ALLOWED_ORIGIN || "http://localhost:5173" || "*",
+    origin: allowedOrigins,
+    credentials: true,
   })
 );
-// if (process.env.NODE_ENV !== "production") {
-//   app.use(
-//     cors({
-//       origin: "http://localhost:5173",
-//     })
-//   );
-// }
 
 // Middleware
 app.use(express.json());
 app.use(rateLimiter);
 
-// Routes
+// API Routes
 app.use("/api/notes", notesRoutes);
 
-// Serve frontend in production
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-//   });
-// }
+// 👉 Serve frontend in production
+if (process.env.NODE_ENV === "production") {
+  const frontendPath = path.join(__dirname, "../frontend/dist");
+
+  app.use(express.static(frontendPath));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
+  });
+}
 
 // Connect DB and Start Server
 connectDB().then(() => {
   app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
   });
 });
